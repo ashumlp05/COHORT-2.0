@@ -4,10 +4,10 @@
 //   console.log("From inside async fn");
 // }, 2000);
 
-// let a = 0;
-// for (let i = 0; i < 10; i++) {
-//   a = a + 1;
-// }
+let a = 0;
+for (let i = 0; i < 10; i++) {
+  a = a + 1;
+}
 
 // console.log(a);
 function kiratAsyncFunction(){
