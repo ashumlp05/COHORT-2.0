@@ -1,0 +1,15 @@
+<html>
+  <script>
+    function todo(){
+      const title=document.getElementById("title").value;
+      const description=document.getElementById("description").value;
+      document.getElementById("container").innerHTML =""
+    }
+  </script>
+  <div>
+    <input id="title" type="text" placeholder="Title">
+    <input id="description" type="text" placeholder="Description">
+    <button onclick="todo()">Add TODO</button>
+    <div id="container"></div>
+  </div>
+</html>
