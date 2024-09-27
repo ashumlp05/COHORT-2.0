@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
-    function todo(){
-      const title=document.getElementById("title").value;
-      const description=document.getElementById("description").value;
-      document.getElementById("container").innerHTML =""
+    let globalId = 1;
+
+    function MarkAsDone(todoId) {
+      const parent = document.getElementById(todoId);
+      parent.children[2].innerHTML = "Done"
+
+    }
+
+    function createChild(title, descreption, id) {
+      const child = document.createElement("div")
+      const firstGrandParent = document.createElement("dev");
+      firstGrandParent.innerHTML = title;
+      const secondgrandparent = document.createElement("div");
+      secondgrandparent.innerHTML = descreption;
+      const thirdgrandparent = document.createElement("button")
+      thirdgrandparent.innerHTML = "Mark as Done";
+      thirdgrandparent.setAttribute("onclick", `MarkAsDone(${id})`);
+      child.appendChild(firstGrandParent);
+      child.appendChild(secondgrandparent);
+      child.appendChild(thirdgrandparent);
+      child.setAttribute("id", id);
+      return child;
+    }
+
+
+    function todo() {
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const parent = document.getElementById("todos");
+      parent.appendChild(createChild(title, description, globalId++));
     }
   </script>
   <div>
     <input id="title" type="text" placeholder="Title">
     <input id="description" type="text" placeholder="Description">
     <button onclick="todo()">Add TODO</button>
-    <div id="container"></div>
+    <div id="todos"></div>
   </div>
 </body>
+
 </html>
